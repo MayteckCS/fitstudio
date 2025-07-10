@@ -1,13 +1,13 @@
 body {
   margin: 0;
-  font-family: sans-serif;
-  background: #f8f9fa;
-  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+  background: #eef5f2;
+  color: #2d2d2d;
 }
 
 header {
-  background: #1a1a1a;
-  color: #fff;
+  background: #00796b;
+  color: white;
 }
 
 .navbar {
@@ -18,9 +18,8 @@ header {
   position: relative;
 }
 
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
+.logo img {
+  height: 40px;
 }
 
 .nav-links {
@@ -30,12 +29,12 @@ header {
   position: absolute;
   top: 60px;
   right: 1rem;
-  background-color: #1a1a1a;
+  background-color: #00796b;
   padding: 1rem;
 }
 
 .nav-links a {
-  color: #fff;
+  color: white;
   text-decoration: none;
   margin: 0.5rem 0;
 }
@@ -46,6 +45,10 @@ header {
   display: block;
 }
 
+#menu-toggle {
+  display: none;
+}
+
 #menu-toggle:checked + .menu-icon + .nav-links {
   display: flex;
 }
@@ -53,12 +56,16 @@ header {
 .hero {
   padding: 4rem 2rem;
   text-align: center;
-  background: #d9f1ff;
+  background: linear-gradient(to bottom right, #ffffff, #eef5f2);
+}
+
+.hero img {
+  margin-bottom: 1rem;
 }
 
 footer {
   text-align: center;
   padding: 1rem;
-  background: #1a1a1a;
+  background: #263238;
   color: white;
 }
