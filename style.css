@@ -73,6 +73,17 @@ section img {
 
 .feature-image {
   flex: 1;
+  max-width: 100%;
+  height: 350px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Uniform size, cropped if needed */
+  display: block;
 }
 
 .get-quote {
