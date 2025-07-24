@@ -1,162 +1,125 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>FitRecruiter | Home</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <style>
-    .site-header {
-      background-color: #fff;
-      border-bottom: 1px solid #eee;
-      padding: 1.5rem 0;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .site-header .container {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-    }
-    .logo a {
-      font-size: 1.5rem;
-      font-weight: 800;
-      text-decoration: none;
-      color: #111;
-    }
-    .nav-bar {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-    .nav-bar ul {
-      list-style: none;
-      display: flex;
-      gap: 2rem;
-      margin: 0;
-      padding: 0;
-    }
-    .nav-bar ul li a {
-      text-decoration: none;
-      font-weight: 500;
-      color: #333;
-      position: relative;
-    }
-    .nav-bar ul li a:hover::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      width: 100%;
-      height: 2px;
-      background-color: #000;
-    }
-    .btn {
-      display: inline-block;
-      padding: 0.75rem 1.5rem;
-      border: 2px solid #000;
-      color: #000;
-      text-transform: uppercase;
-      font-weight: 600;
-      text-decoration: none;
-      transition: background-color 0.3s, color 0.3s;
-      white-space: nowrap;
-    }
-    .btn:hover {
-      background-color: #000;
-      color: #fff;
-    }
-    .hero {
-      position: relative;
-      overflow: hidden;
-      height: 70vh;
-    }
-    .hero video {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      min-width: 100%;
-      min-height: 100%;
-      object-fit: cover;
-      filter: brightness(0.4);
-    }
-    .hero h1 {
-      position: relative;
-      color: #fff;
-      font-size: 2.5rem;
-      text-align: center;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 1;
-    }
-  </style>
+  <title>Fit Recruiter | Studios for Health Professionals</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <div class="logo">
-        <a href="index.html"><strong>FITSTUDIO</strong></a>
-      </div>
-     <nav class="nav-bar">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="about.html">About</a></li>
-    <li class="dropdown">
-      <a href="services.html">Services</a>
-      <ul class="dropdown-content">
-        <li><a href="off-the-wall.html">Off The Wall</a></li>
-        <li><a href="rumble-room.html">Rumble Room</a></li>
-        <li><a href="kids-zone.html">Kids Zone</a></li>
-      </ul>
-    </li>
-    <li><a href="testimonials.html">Testimonials</a></li>
-  </ul>
-  <a href="contact.html" class="btn">Contact</a>
-</nav>
+
+  <header class="hero">
+    <video autoplay muted loop class="hero-video">
+      <source src="images/hero-loop.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-content">
+      <h1>Fit Recruiter</h1>
+      <p>Studios for health and fitness professionals</p>
     </div>
   </header>
 
-  <section class="hero">
-    <video autoplay muted loop playsinline>
-      <source src="assets/videos/studio_bg.mp4" type="video/mp4">
-    </video>
-    <h1>A Shared Space for Whole-Body Wellness</h1>
+  <section class="feature-container">
+    <div class="feature-image"><img src="images/customize-studio.jpg" alt="Customize Studio"></div>
+    <div class="feature-text">
+      <h2>Make It Yours</h2>
+      <p>Every professional has a unique style and approach. With Fit Recruiter, you can personalize your private studio — from equipment and layout to decor and vibe. Our spaces come with all essential tools, and you're welcome to bring your own.</p>
+      <a href="#" class="get-quote">Get a Quote</a>
+    </div>
   </section>
 
-  <main>
-    <section class="section">
-      <div class="container">
-        <div class="text">
-          <p>
-            FitStudio is not a traditional gym or class-based fitness center. Instead, we offer a central wellness zone equipped with padded flooring, rehabilitation tools, and specialty wall features — a flexible environment ideal for physical recovery, movement training, and holistic support.
-          </p>
-          <p>
-            Surrounding this shared space are individual therapy rooms available to licensed practitioners offering their own services — from massage and chiropractic care to physical therapy, strength training, or guided movement. It’s a purpose-built studio, delivered as a blank slate for wellness providers to shape.
-          </p>
-        </div>
-        <img src="assets/images/wallpaper_wide.jpg" alt="Calm padded wellness area" />
-      </div>
-    </section>
+  <section class="feature-container reverse">
+    <div class="feature-image"><img src="images/branding-options.jpg" alt="Branding Options"></div>
+    <div class="feature-text">
+      <h2>Professional Branding</h2>
+      <p>Stand out from day one. Your studio door includes your own logo and signage, and we’ll even build you a beautiful, modern website to match. You're not just renting space — you're launching your brand.</p>
+      <a href="#" class="get-quote">Get a Quote</a>
+    </div>
+  </section>
 
-    <section class="section">
-      <div class="container">
-        <img src="assets/images/studio_equipment_empty.jpg" alt="Empty therapy room with equipment" />
-        <div class="text">
-          <h2>Designed for Practitioners, Not Programs</h2>
-          <p>
-            FitStudio provides the physical framework — you bring the practice. Each practitioner tailors their services independently, using our calming environment and well-maintained facility as a foundation. It’s ideal for physical therapists, massage therapists, corrective trainers, or any provider working with clients toward better movement and recovery.
-          </p>
-        </div>
-      </div>
-    </section>
-  </main>
+  <section class="feature-container">
+    <div class="feature-image"><img src="images/equipment-access.jpg" alt="Shared Equipment Access"></div>
+    <div class="feature-text">
+      <h2>Shared Amenities</h2>
+      <p>Our shared training space includes cardio machines, strength equipment, water stations, and modern bathrooms — all wrapped in a calming, therapeutic design. It's your clients' favorite gym without the chaos of a gym.</p>
+      <a href="#" class="get-quote">Get a Quote</a>
+    </div>
+  </section>
+
+  <section class="feature-container reverse">
+    <div class="feature-image"><img src="images/group-classes.jpg" alt="Group Classes"></div>
+    <div class="feature-text">
+      <h2>Inclusive Group Classes</h2>
+      <p>Host or attend classes in our bounce-back floored studio. Designed for people with Parkinson’s, osteoporosis, seniors, youth, and everyone in between. This is wellness, redefined.</p>
+      <a href="#" class="get-quote">Get a Quote</a>
+    </div>
+  </section>
+
+  <section class="feature-container">
+    <div class="feature-image"><img src="images/get-started.jpg" alt="Get Started"></div>
+    <div class="feature-text">
+      <h2>Flexible. Affordable. Empowering.</h2>
+      <p>With month-to-month options, subleasing ability, and low upfront costs, Fit Recruiter makes launching your business a reality — today. Get started part-time or go all in. We’re here to help you succeed.</p>
+      <a href="#" class="get-quote">Get a Quote</a>
+    </div>
+  </section>
 
   <footer>
-    <p>&copy; 2025 FitRecruiter. All rights reserved.</p>
+    <p>Fit Recruiter – Building your business, supporting your clients. <br /> &copy; 2025 Fit Recruiter. All rights reserved.</p>
+  </footer>
+
+
+  <footer class="site-footer">
+    <div class="newsletter">
+      <h3>Subscribe to our Newsletter</h3>
+      <p>Stay updated on space availability, program launches, and wellness news.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email address" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div class="footer-columns">
+      <div>
+        <h4>Studios</h4>
+        <ul>
+          <li>Private Rentals</li>
+          <li>Subleasing</li>
+          <li>Custom Layouts</li>
+          <li>Therapy Ready</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li>FAQ</li>
+          <li>Income Calculator</li>
+          <li>Get a Quote</li>
+          <li>Support</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li>Instagram</li>
+          <li>Facebook</li>
+          <li>Email</li>
+          <li>Newsletter</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <ul>
+          <li>Fit Recruiter HQ</li>
+          <li>Huntington Beach, CA</li>
+          <li>hello@fitrecruiter.com</li>
+          <li>(555) 123–4567</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2025 Fit Recruiter. All rights reserved.
+    </div>
   </footer>
 </body>
 </html>
+
