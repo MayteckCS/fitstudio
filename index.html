@@ -34,7 +34,9 @@
 
 
 <section class="topdown-grid">
-  <div class="topdown-tile" style="background-image: url('images/fitness.jpg');">Fitness</div>
+  <div class="topdown-tile" data-video="videos/fitness-vid.mp4" style="background-image: url('images/fitness.jpg');">
+  <video class="tile-video" muted loop playsinline></video>
+  <span class="tile-label">Fitness</span></div>
   <div class="topdown-tile" style="background-image: url('images/physical-therapy.jpg');">Physical Therapy</div>
   <div class="topdown-tile" style="background-image: url('images/occupational-therapy.jpg');">Occupational Therapy</div>
   <div class="topdown-tile" style="background-image: url('images/massage.jpg');">Massage</div>
@@ -143,6 +145,24 @@
       &copy; 2025 Fit Recruiter. All rights reserved.
     </div>
   </footer>
+  <!-- JavaScript for video tiles-->
+   <script>
+  document.querySelectorAll('.topdown-tile').forEach(tile => {
+    const video = tile.querySelector('.tile-video');
+    const videoSrc = tile.dataset.video;
+
+    tile.addEventListener('mouseenter', () => {
+      if (!video.src) video.src = videoSrc;
+      video.play();
+      video.style.opacity = '1';
+    });
+
+    tile.addEventListener('mouseleave', () => {
+      video.pause();
+      video.style.opacity = '0';
+    });
+  });
+</script>
 </body>
 </html>
 
