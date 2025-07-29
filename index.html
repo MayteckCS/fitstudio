@@ -36,14 +36,31 @@
 
 <section class="topdown-grid">
   <div class="topdown-tile" data-video="videos/fitness-vid.mp4" style="background-image: url('images/fitness.jpg');">
-  <video class="tile-video" muted loop playsinline></video>
-  <span class="tile-label">Fitness</span></div>
-  <div class="topdown-tile" style="background-image: url('images/physical-therapy.jpg');">Physical Therapy</div>
-  <div class="topdown-tile" style="background-image: url('images/occupational-therapy.jpg');">Occupational Therapy</div>
-  <div class="topdown-tile" style="background-image: url('images/massage.jpg');">Massage</div>
-  <div class="topdown-tile" style="background-image: url('images/nutrition.jpg');">Nutrition</div>
-  <div class="topdown-tile" style="background-image: url('images/group-fitness.jpg');">Group Fitness</div>
+    <video class="tile-video" muted loop playsinline></video>
+    <span class="tile-label">Fitness</span>
+  </div>
+  <div class="topdown-tile" data-video="videos/physical-therapy.mp4" style="background-image: url('images/physical-therapy.jpg');">
+    <video class="tile-video" muted loop playsinline></video>
+    <span class="tile-label">Physical Therapy</span>
+  </div>
+  <div class="topdown-tile" data-video="videos/occupational-therapy.mp4" style="background-image: url('images/occupational-therapy.jpg');">
+    <video class="tile-video" muted loop playsinline></video>
+    <span class="tile-label">Occupational Therapy</span>
+  </div>
+  <div class="topdown-tile" data-video="videos/massage.mp4" style="background-image: url('images/massage.jpg');">
+    <video class="tile-video" muted loop playsinline></video>
+    <span class="tile-label">Massage</span>
+  </div>
+  <div class="topdown-tile" data-video="videos/nutrition.mp4" style="background-image: url('images/nutrition.jpg');">
+    <video class="tile-video" muted loop playsinline></video>
+    <span class="tile-label">Nutrition</span>
+  </div>
+  <div class="topdown-tile" data-video="videos/group-fitness.mp4" style="background-image: url('images/group-fitness.jpg');">
+    <video class="tile-video" muted loop playsinline></video>
+    <span class="tile-label">Group Fitness</span>
+  </div>
 </section>
+
 
 <section class="overlay-feature">
   <div class="overlay-box">
@@ -125,6 +142,42 @@
     </div>
   </section>
 
+  <section class="calculator">
+  <h2>Income Projection Calculator</h2>
+  <p>Adjust your weekly client load, hourly rate, and rent to see your projected monthly and yearly income.</p>
+
+  <div class="form-group">
+    <label for="clientsPerDay">Clients per Day:</label>
+    <input type="number" id="clientsPerDay" value="5">
+  </div>
+
+  <div class="form-group">
+    <label for="daysPerWeek">Days per Week:</label>
+    <input type="number" id="daysPerWeek" value="4">
+  </div>
+
+  <div class="form-group">
+    <label for="hourlyRate">Hourly Rate ($):</label>
+    <input type="number" id="hourlyRate" value="100">
+  </div>
+
+  <div class="form-group">
+    <label for="monthlyRent">Monthly Rent ($):</label>
+    <input type="number" id="monthlyRent" value="3000">
+  </div>
+
+  <div class="form-group">
+    <label for="subleaseDiscount">Sublease Discount ($):</label>
+    <input type="number" id="subleaseDiscount" value="0">
+  </div>
+
+  <button onclick="calculateProjection()">Calculate</button>
+
+  <p id="income-result"></p>
+</section>
+
+
+
   <footer>
     <p>Fit Recruiter – Building your business, supporting your clients. <br /> &copy; 2025 Fit Recruiter. All rights reserved.</p>
   </footer>
@@ -199,6 +252,31 @@
     });
   });
 </script>
+
+<script>
+  function calculateProjection() {
+    const clients = parseInt(document.getElementById('clientsPerDay').value) || 0;
+    const days = parseInt(document.getElementById('daysPerWeek').value) || 0;
+    const rate = parseFloat(document.getElementById('hourlyRate').value) || 0;
+    const rent = parseFloat(document.getElementById('monthlyRent').value) || 0;
+    const discount = parseFloat(document.getElementById('subleaseDiscount').value) || 0;
+
+    const weeklyIncome = clients * days * rate;
+    const monthlyIncome = weeklyIncome * 4;
+    const adjustedRent = Math.max(rent - discount, 0);
+    const netIncome = monthlyIncome - adjustedRent;
+
+    const resultHTML = `
+      <p><strong>Monthly Gross Income:</strong> $${monthlyIncome.toLocaleString()}</p>
+      <p><strong>Monthly Rent (after discount):</strong> $${adjustedRent.toLocaleString()}</p>
+      <p><strong>Estimated Take-Home (Net):</strong> $${netIncome.toLocaleString()}</p>
+      <p><em>That’s about $${(netIncome * 12).toLocaleString()} per year.</em></p>
+    `;
+
+    document.getElementById("income-result").innerHTML = resultHTML;
+  }
+</script>
+
 </body>
 </html>
 
