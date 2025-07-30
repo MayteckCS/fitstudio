@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Get a Quote - Fit Recruiter</title>
+<style>
+    /* General Body and Site Layout Styles */
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+        display: flex;
+        flex-direction: column;
+        background-color: #f4f4f9;
+        margin: 0;
+        min-height: 100vh;
+    }
+
+    /* Navigation Bar Styles */
+    .top-nav {
+        background-color: #ffffff;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 0 5%;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1400px;
+        margin: 0 auto;
+        height: 60px;
+    }
+    .logo {
+        font-weight: bold;
+        font-size: 24px;
+        color: #333;
+    }
+    .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 25px;
+        margin: 0;
+        padding: 0;
+    }
+    .nav-links a {
+        text-decoration: none;
+        color: #555;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+    .nav-links a:hover {
+        color: #007bff;
+    }
+
+    /* Main Content Section */
+    .overlay-feature {
+        padding: 30px 5%;
+        flex-grow: 1; /* Allows this section to fill available space */
+    }
+    .overlay-box {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    .overlay-box h2 {
+        margin-top: 0;
+        font-size: 28px;
+        color: #333;
+    }
+    .overlay-box p {
+        color: #666;
+        margin-bottom: 30px;
+    }
+    
+    /* Footer Styles */
+    footer {
+        background-color: #333;
+        color: #f4f4f9;
+        text-align: center;
+        padding: 20px 5%;
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    /* --- Room Designer Tool Styles (Largely Unchanged) --- */
+    .controls {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 20px;
+        width: 100%;
+        padding: 15px;
+        background: #f9f9f9;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+    }
+    #background-selector strong { margin-right: 10px; }
+    #reset-btn {
+        padding: 8px 15px;
+        border: 1px solid #c0392b;
+        background-color: #e74c3c;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s;
+    }
+    #reset-btn:hover { background-color: #c0392b; }
+    .main-container {
+        display: flex;
+        width: 100%;
+    }
+    #equipment-panel {
+        width: 200px;
+        padding: 15px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        margin-right: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: fit-content;
+    }
+    #equipment-panel h3 { margin-top: 0; text-align: center; }
+    .equipment {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+        cursor: grab;
+        border: 2px solid transparent;
+        transition: border-color 0.3s;
+        object-fit: contain;
+    }
+    .equipment:hover { border-color: #007bff; }
+    #room {
+        flex-grow: 1;
+        min-height: 70vh;
+        border: 2px dashed #ccc;
+        border-radius: 8px;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        transition: background-image 0.5s ease-in-out;
+        box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+    }
+    .dropped-equipment {
+        position: absolute;
+        cursor: move;
+        width: 120px;
+        height: 120px;
+        object-fit: contain;
+        filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.2));
+    }
+    .equipment.needs-resize { width: 130px; }
+    .dropped-equipment.needs-resize { width: 170px; height: 170px; 
+    }
+
+.top-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 77, 64, 0.95); /* calming dark green */
+  color: white;
+  z-index: 999;
+  padding: 0.75rem 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+    color: white;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+}
+
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.nav-links li a:hover {
+  color: #aef2e0;
+}
+
+
+
+footer {
+  background: #1a2b3a;
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem;
+  margin-top: 3rem;
+}
+
+.site-footer {
+  background: #003d33;
+  color: white;
+  padding: 3rem 1rem 2rem;
+  font-size: 0.95rem;
+}
+.site-footer h3, .site-footer h4 {
+  color: #aef2e0;
+}
+
+</style>
+</head>
+<body>
+
+ <!-- Navigation -->
+  <nav class="top-nav">
+    <div class="nav-container">
+      <div class="logo">Fit Recruiter</div>
+      <ul class="nav-links">
+        <li><a href="index.html#studios">Studios</a></li>
+        <li><a href="index.html#features">Features</a></li>
+        <li><a href="index.html#quote">Get a Quote</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <section class="overlay-feature">
+    <div class="overlay-box">
+      <p><p></p><p>Select a background and drag equipment into the room. Double-click an item to remove it.</p>
+    
+      <!-- Room Designer Tool Starts Here -->
+      <div class="controls">
+        <div id="background-selector">
+            <strong>Choose Background:</strong>
+            <label><input type="radio" name="background" value="images/bg1.jpg" checked> 1</label>
+            <label><input type="radio" name="background" value="images/bg2.jpg"> 2</label>
+            <label><input type="radio" name="background" value="images/bg3.jpg"> 3</label>
+            <label><input type="radio" name="background" value="images/bg4.jpg"> 4</label>
+            <label><input type="radio" name="background" value="images/bg5.jpg"> 5</label>
+            <label><input type="radio" name="background" value="images/bg6.jpg"> 6</label>
+        </div>
+        <div id="action-buttons">
+             <button id="reset-btn">Reset Room</button>
+        </div>
+      </div>
+
+      <div class="main-container">
+        <div id="equipment-panel">
+            <h3>Equipment</h3>
+            <img id="equipment1" class="equipment" src="images/equip1.png" draggable="true" alt="Equipment 1">
+            <img id="equipment2" class="equipment" src="images/equip2.png" draggable="true" alt="Equipment 2">
+            <img id="equipment3" class="equipment" src="images/equip3.png" draggable="true" alt="Equipment 3">
+            <img id="equipment4" class="equipment" src="images/equip4.png" draggable="true" alt="Equipment 4">
+            <img id="equipment5" class="equipment" src="images/equip5.png" draggable="true" alt="Equipment 5">
+            <img id="equipment6" class="equipment needs-resize" src="images/equip6.png" draggable="true" alt="Equipment 6">
+            <img id="equipment7" class="equipment" src="images/equip7.png" draggable="true" alt="Equipment 7">
+            <img id="equipment8" class="equipment" src="images/equip8.png" draggable="true" alt="Equipment 8">
+        </div>
+
+        <div id="room" style="background-image: url('images/bg1.jpg');"></div>
+      </div>
+      <!-- Room Designer Tool Ends Here -->
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>Fit Recruiter – Building your business, supporting your clients. <br /> © 2025 Fit Recruiter. All rights reserved.</p>
+  </footer>
+
+<script>
+    // The JavaScript is identical to the previous version and works perfectly here.
+    document.addEventListener('DOMContentLoaded', () => {
+        const room = document.getElementById('room');
+        const backgroundRadios = document.querySelectorAll('input[name="background"]');
+        const resetButton = document.getElementById('reset-btn');
+
+        backgroundRadios.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.checked) {
+                    room.style.backgroundImage = `url(${this.value})`;
+                }
+            });
+        });
+
+        resetButton.addEventListener('click', () => {
+            room.innerHTML = '';
+        });
+        
+        room.addEventListener('dblclick', (e) => {
+            if (e.target.classList.contains('dropped-equipment')) {
+                e.target.remove();
+            }
+        });
+
+        let draggedItem = null;
+        let offsetX, offsetY;
+
+        document.addEventListener('dragstart', (e) => {
+            if (e.target.classList.contains('equipment') || e.target.classList.contains('dropped-equipment')) {
+                draggedItem = e.target;
+                const rect = draggedItem.getBoundingClientRect();
+                offsetX = e.clientX - rect.left;
+                offsetY = e.clientY - rect.top;
+                e.dataTransfer.effectAllowed = 'move';
+            }
+        });
+
+        room.addEventListener('dragover', (e) => {
+            e.preventDefault(); 
+        });
+
+        room.addEventListener('drop', (e) => {
+            e.preventDefault();
+            if (!draggedItem) return;
+
+            const isMoving = draggedItem.parentElement === room;
+            const roomRect = room.getBoundingClientRect();
+            let x = e.clientX - roomRect.left - offsetX;
+            let y = e.clientY - roomRect.top - offsetY;
+
+            if (isMoving) {
+                draggedItem.style.left = `${x}px`;
+                draggedItem.style.top = `${y}px`;
+            } else {
+                const clone = draggedItem.cloneNode(true);
+                clone.className = 'dropped-equipment';
+                if (draggedItem.classList.contains('needs-resize')) {
+                    clone.classList.add('needs-resize');
+                }
+                clone.style.left = `${x}px`;
+                clone.style.top = `${y}px`;
+                clone.id = `dropped-${draggedItem.id}-${Date.now()}`;
+                room.appendChild(clone);
+            }
+            draggedItem = null;
+        });
+    });
+</script>
+
+</body>
+</html>
