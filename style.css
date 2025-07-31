@@ -4,6 +4,23 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: #f6f9fb;
   color: #222;
+  overflow-x: hidden;
+}
+
+#bg-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  opacity: 0.25; /* adjust to taste */
+  pointer-events: none;
+}
+
+html {
+  overflow-x: hidden;
 }
 
 .hero {
@@ -129,10 +146,22 @@ footer {
   color: white;
   padding: 3rem 1rem 2rem;
   font-size: 0.95rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 .site-footer h3, .site-footer h4 {
   color: #aef2e0;
 }
+footer.legacy-footer {
+  background-color: rgba(14, 27, 42, 0.95);
+  backdrop-filter: blur(2px); /* optional, looks slick */
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
 .newsletter {
   text-align: center;
   margin-bottom: 2rem;
@@ -223,11 +252,13 @@ footer {
 }
 
 .topdown-grid {
+  width: 100%;
+  padding: 60px 40px;
+  background: linear-gradient(to bottom, #0e1b2a, #172a45);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
-  padding: 60px 20px;
-  background: linear-gradient(to bottom, #0e1b2a, #172a45);
+  box-sizing: border-box;
 }
 
 .topdown-tile {
@@ -574,3 +605,53 @@ footer {
   min-width: 120px;
 }
 
+.full-width-section {
+  width: 100%;
+  background: #00574b; /* match your preferred green or blue background */
+  padding: 60px 0;
+  color: white;
+}
+
+.section-content {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.section-content .feature-description,
+.section-content .overlay-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.section-content h2 {
+  font-size: 2em;
+  color: #78ffb7;
+  margin-bottom: 20px;
+}
+
+.section-content p {
+  font-size: 1.1em;
+  line-height: 1.6;
+}
+
+.get-quote.small {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #78ffb7;
+  color: #00322d;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.get-quote.small:hover {
+  background: #56db9a;
+}
