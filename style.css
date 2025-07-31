@@ -254,7 +254,7 @@ footer.legacy-footer {
 .topdown-grid {
   width: 100%;
   padding: 60px 40px;
-  background: linear-gradient(to bottom, #0e1b2a, #172a45);
+  background: linear-gradient(to bottom, #0e1b2a, #00574b);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
@@ -655,3 +655,39 @@ footer.legacy-footer {
 .get-quote.small:hover {
   background: #56db9a;
 }
+
+.gym-popup-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-top:-50px;
+  padding-right: 30px;
+}
+
+.gym-popup {
+
+  background: #ffffff;
+  color: #003d33;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  max-width: 650px;
+  max-height: 430px;
+  text-align: left;
+  z-index: 5;
+  transform: translateY(-40px);
+  border: 2px solid #78ffb7;
+}
+
+.gym-popup h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+  color: #00796B;
+}
+
+.gym-popup p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
