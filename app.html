@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="images/favicon.ico">
 <title>Get a Quote - Fit Recruiter</title>
 <style>
     /* General Body and Site Layout Styles */
@@ -160,9 +161,36 @@
         object-fit: contain;
         filter: drop-shadow(3px 5px 2px rgba(0, 0, 0, 0.2));
     }
-    .equipment.needs-resize { width: 130px; }
-    .dropped-equipment.needs-resize { width: 170px; height: 170px; 
-    }
+
+
+
+
+
+#equipment4, #equipment7 {
+    width: 50px;
+    height: 50px;
+}
+
+/* Double the size of the bench, treadmill, elliptical, and dumbbell rack when dropped */
+.dropped-equipment[src*="equip1"],
+.dropped-equipment[src*="equip2"],
+.dropped-equipment[src*="equip3"],
+.dropped-equipment[src*="equip5"],
+.dropped-equipment[src*="equip8"] {
+    width: 240px;
+    height: 240px;
+}
+
+.dropped-equipment[src*="equip6"] {
+    width: 400px;
+    height: 400px;
+}
+
+/* Halve the size of the kettlebells when dropped */
+.dropped-equipment[src*="equip7"] {
+    width: 60px;
+    height: 60px;
+}
 
 .top-nav {
   position: fixed;
@@ -227,7 +255,17 @@ footer {
 .site-footer h3, .site-footer h4 {
   color: #aef2e0;
 }
+.logo a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
 
+.logo a:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
 </style>
 </head>
 <body>
@@ -235,11 +273,10 @@ footer {
  <!-- Navigation -->
   <nav class="top-nav">
     <div class="nav-container">
-      <div class="logo">Fit Recruiter</div>
+      <div class="logo"><a href="index.html">Fit Recruiter</div>
       <ul class="nav-links">
-        <li><a href="index.html#studios">Studios</a></li>
-        <li><a href="index.html#features">Features</a></li>
-        <li><a href="index.html#quote">Get a Quote</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="app.html">Design Your Studio</a></li>
         <li><a href="index.html#contact">Contact</a></li>
       </ul>
     </div>
@@ -248,7 +285,8 @@ footer {
   <!-- Main Content -->
   <section class="overlay-feature">
     <div class="overlay-box">
-      <p><p></p><p>Select a background and drag equipment into the room. Double-click an item to remove it.</p>
+      <p><p></p><p>Select a background and drag equipment into the room!
+        <p>Right-click an item to rotate it. Double-click an item to remove it.</p></p>
     
       <!-- Room Designer Tool Starts Here -->
       <div class="controls">
@@ -292,7 +330,6 @@ footer {
   </footer>
 
 <script>
-    // The JavaScript is identical to the previous version and works perfectly here.
     document.addEventListener('DOMContentLoaded', () => {
         const room = document.getElementById('room');
         const backgroundRadios = document.querySelectorAll('input[name="background"]');
@@ -313,6 +350,22 @@ footer {
         room.addEventListener('dblclick', (e) => {
             if (e.target.classList.contains('dropped-equipment')) {
                 e.target.remove();
+            }
+        });
+
+        // Add right-click rotation functionality
+        room.addEventListener('contextmenu', (e) => {
+            if (e.target.classList.contains('dropped-equipment')) {
+                e.preventDefault(); // Prevents the default context menu from showing
+                const element = e.target;
+                const currentRotation = element.style.transform.match(/rotate\((.*)deg\)/);
+                let newRotation = 90;
+
+                if (currentRotation) {
+                    newRotation = (parseInt(currentRotation[1], 10) + 90) % 360;
+                }
+                
+                element.style.transform = `rotate(${newRotation}deg)`;
             }
         });
 

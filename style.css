@@ -233,6 +233,19 @@ footer.legacy-footer {
   font-weight: bold;
 }
 
+.logo a {
+  color: inherit;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.logo a:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 8px rgba(0, 255, 255, 0.6);
+}
+
+
 .nav-links {
   list-style: none;
   display: flex;
