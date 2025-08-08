@@ -1,0 +1,188 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fit Recruiter | Studios for Health Professionals</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+
+<video autoplay muted loop id="bg-video">
+  <source src="videos\body-bg.mp4" type="video/mp4">
+</video>
+
+	<!-- Menu Bar -->
+<nav class="top-nav">
+  <div class="nav-container">
+    <div class="logo">Fit Recruiter</div>
+    <ul class="nav-links">
+      <li><a href="#studios">Studios</a></li>
+      <li><a href="#features">Features</a></li>
+      <li><a href="/app.html">Get a Quote</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+	<!-- Header Video
+  <header class="parallax-header">
+    <video autoplay muted loop class="hero-video">
+      <source src="images/hero-loop.mp4" type="video/mp4" />
+    </video>
+    <div class="hero-content">
+      <h1>Fit Recruiter</h1>
+      <p>Studios for health and fitness professionals</p>
+    </div>
+  </header>
+-->
+  
+<!--
+<section class="topdown-grid">
+  <div class="topdown-tile" data-video="videos/fitness-vid.mp4" style="background-image: url('images/fitness.jpg');">
+    <video class="tile-video" muted loop playsinline></video>
+    <span class="tile-label">Fitness</span>
+  </div>
+  <div class="topdown-tile" data-video="videos/physical-therapy.mp4" style="background-image: url('images/physical-therapy.jpg');">
+    <video class="tile-video" muted loop playsinline></video>
+    <span class="tile-label">Physical Therapy</span>
+  </div>
+  <div class="topdown-tile" data-video="videos/occupational-therapy.mp4" style="background-image: url('images/occupational-therapy.jpg');">
+    <video class="tile-video" muted loop playsinline></video>
+    <span class="tile-label">Occupational Therapy</span>
+  </div>
+  <div class="topdown-tile" data-video="videos/massage.mp4" style="background-image: url('images/massage.jpg');">
+    <video class="tile-video" muted loop playsinline></video>
+    <span class="tile-label">Massage</span>
+  </div>
+  <div class="topdown-tile" data-video="videos/nutrition.mp4" style="background-image: url('images/nutrition.jpg');">
+    <video class="tile-video" muted loop playsinline></video>
+    <span class="tile-label">Nutrition</span>
+  </div>
+  <div class="topdown-tile" data-video="videos/group-fitness.mp4" style="background-image: url('images/group-fitness.jpg');">
+    <video class="tile-video" muted loop playsinline></video>
+    <span class="tile-label">Group Fitness</span>
+  </div>
+</section>
+-->
+
+<section class="feature-section">
+  <div class="feature-tile" style="background-image: url('images/own-studio-topdown.jpg');">
+    <div class="feature-caption">
+      Design your ideal 100–150 sq ft studio with equipment and furnishings included
+    </div>
+  </div>
+
+<section class="full-width-section">
+  <div class="section-content">
+    <div class="feature-description">
+      <h2>Gallery</h2>
+</div>
+</section>
+
+
+
+
+
+
+
+  <footer class="site-footer">
+    <div class="newsletter">
+      <h3>Subscribe to our Newsletter</h3>
+      <p>Stay updated on space availability, program launches, and wellness news.</p>
+      <form class="newsletter-form">
+        <input type="email" placeholder="Your email address" required />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+    <div class="footer-columns">
+      <div>
+        <h4>Studios</h4>
+        <ul>
+          <li>Private Rentals</li>
+          <li>Subleasing</li>
+          <li>Custom Layouts</li>
+          <li>Therapy Ready</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Resources</h4>
+        <ul>
+          <li>FAQ</li>
+          <li>Income Calculator</li>
+          <li>Get a Quote</li>
+          <li>Support</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li>Instagram</li>
+          <li>Facebook</li>
+          <li>Email</li>
+          <li>Newsletter</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact Us</h4>
+        <ul>
+          <li>Fit Recruiter HQ</li>
+          <li>Huntington Beach, CA</li>
+          <li>hello@fitrecruiter.com</li>
+          <li>(555) 123–4567</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2025 Fit Recruiter. All rights reserved.
+    </div>
+  </footer>
+  <!-- JavaScript for video tiles-->
+   <script>
+  document.querySelectorAll('.topdown-tile').forEach(tile => {
+    const video = tile.querySelector('.tile-video');
+    const videoSrc = tile.dataset.video;
+
+    tile.addEventListener('mouseenter', () => {
+      if (!video.src) video.src = videoSrc;
+      video.play();
+      video.style.opacity = '1';
+    });
+
+    tile.addEventListener('mouseleave', () => {
+      video.pause();
+      video.style.opacity = '0';
+    });
+  });
+</script>
+
+<script>
+  function calculateProjection() {
+    const clients = parseInt(document.getElementById('clientsPerDay').value) || 0;
+    const days = parseInt(document.getElementById('daysPerWeek').value) || 0;
+    const rate = parseFloat(document.getElementById('hourlyRate').value) || 0;
+    const rent = parseFloat(document.getElementById('monthlyRent').value) || 0;
+    const discount = parseFloat(document.getElementById('subleaseDiscount').value) || 0;
+
+    const weeklyIncome = clients * days * rate;
+    const monthlyIncome = weeklyIncome * 4;
+    const adjustedRent = Math.max(rent - discount, 0);
+    const netIncome = monthlyIncome - adjustedRent;
+
+    const resultHTML = `
+      <p><strong>Monthly Gross Income:</strong> $${monthlyIncome.toLocaleString()}</p>
+      <p><strong>Monthly Rent (after discount):</strong> $${adjustedRent.toLocaleString()}</p>
+      <p><strong>Estimated Take-Home (Net):</strong> $${netIncome.toLocaleString()}</p>
+      <p><em>That’s about $${(netIncome * 12).toLocaleString()} per year.</em></p>
+    `;
+
+    document.getElementById("income-result").innerHTML = resultHTML;
+  }
+</script>
+
+</body>
+</html>
+
